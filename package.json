@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "dev": "nodemon -L -e ts",
+    "dev": "nodemon -L src/index.ts",
     "start": "node build/index.js"
   },
   "keywords": [],
@@ -38,12 +38,5 @@
     "mongoose": "^6.0.12",
     "morgan": "^1.10.0",
     "winston": "^3.3.3"
-  },
-  "nodemonConfig": {
-    "watch": [
-      "src"
-    ],
-    "ext": ".ts",
-    "exec": "ts-node src/index.ts"
   }
 }

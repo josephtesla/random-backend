@@ -32,7 +32,7 @@ app.all('*', (req: Request, res: Response, next: NextFunction) => {
     next(
         new AppError(
             `This endpoint ${req.originalUrl} does not exist on this server!`,
-            404
+            404 
         )
     );
 });
