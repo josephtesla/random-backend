@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  app:
+    container_name: typescript-node
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./src:/app/src
+    ports:
+      - "8000:8000"
+    links:
+      - mongo
+    environment:
+      - NODE_ENV=development
+      - PORT=8000
+      - MONGO_URI_DEV=mongodb://mongo:27017/express-ts-mongo-dev
+      - MONGO_URI_TEST=mongodb://mongo:27017/express-ts-mongo-test
+      - MONGO_URI_PROD=mongodb://mongo:27017/express-ts-mongo-live
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - '27017:27017'
+
