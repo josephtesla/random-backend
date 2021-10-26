@@ -4,6 +4,9 @@
     "module": "commonjs",
     "outDir": "./build",
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "compilerOptions": {
+      "typeRoots": ["./src/types", "node_modules/@types"],
+    }
   }
 }

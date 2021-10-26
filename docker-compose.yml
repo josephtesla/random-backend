@@ -2,7 +2,7 @@ version: "3"
 
 services:
   app:
-    container_name: typescript-node
+    container_name: typescript-backend
     restart: always
     build:
       context: .
@@ -19,15 +19,17 @@ services:
       - MONGO_URI_DEV=mongodb://mongo:27017/express-ts-mongo-dev
       - MONGO_URI_TEST=mongodb://mongo:27017/express-ts-mongo-test
       - MONGO_URI_PROD=mongodb://mongo:27017/express-ts-mongo-live
+      - JWT_SECRET=4SUruc4EmqO8vHA
+
 
   mongo:
-    container_name: mongo
+    container_name: gomoney-mongo
     image: mongo
     ports:
       - '27017:27017'
 
   redis:
-    container_name: redis-cache
+    container_name: gomoney-redis-cache
     image: redis
     expose:
       - 6379

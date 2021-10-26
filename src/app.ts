@@ -10,6 +10,14 @@ import routes from "./routes";
 
 const app: Application = express();
 
+declare global {
+  namespace Express {
+    interface Request {
+      userId: string;
+    }
+  }
+}
+
 app.use(morgan("tiny"));
 app.use(express.static("public"))
 
@@ -29,12 +37,12 @@ app.use(cors());
 app.use('/api/v1', routes);
 
 app.all('*', (req: Request, res: Response, next: NextFunction) => {
-    next(
-        new AppError(
-            `This endpoint ${req.originalUrl} does not exist on this server!`,
-            404 
-        )
-    );
+  next(
+    new AppError(
+      `This endpoint ${req.originalUrl} does not exist on this server!`,
+      404
+    )
+  );
 });
 
 app.use(errorHandler);

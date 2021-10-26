@@ -1,1 +1,1 @@
-## Boilerplate for node.js, typescript, mongodb backend with docker containerization.
+### Gomoney game backend
